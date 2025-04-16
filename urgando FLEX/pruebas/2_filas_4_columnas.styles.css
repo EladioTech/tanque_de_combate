@@ -1,0 +1,30 @@
+.contenedor-grid {
+    display: grid; /* Activa Grid Layout: permite organizar los elementos hijos en filas y columnas */
+    grid-template-columns: repeat(4, 1fr); /* Crea 4 columnas del mismo ancho (1fr = una fracción del espacio disponible) */
+    gap: 20px; /* Añade espacio (10px) entre filas y columnas */
+    padding: 20px; /* Espacio interno (padding) dentro del contenedor, separando el contenido de los bordes */
+    background-color: #121212; /* Fondo oscuro para parecerse a YouTube */
+    min-height: 100vh; /* Que ocupe toda la altura de la pantalla */
+}
+
+.item {
+    background-color: #ff6f61; /* Color de fondo rojizo-naranja para destacar */
+    color: white; /* Texto en blanco */
+    font-weight: bold; /* Texto en negrita */
+    padding: 10px; /* Espacio interior para que el contenido respire */
+    text-align: center; /* Centra el número dentro de la caja */
+    border-radius: 0px; /* Sin bordes redondeados para que se vean más suaves */
+    aspect-ratio: 1 / 1; /* 💡 Esto fuerza que las cajas sean CUADRADAS */
+    display: flex; /* para centrar texto verticalmente */
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); /* Sombra sutil para dar relieve */
+    transition: transform 0.2s ease; /*Sirve para que cualquier transformación (como mover, escalar, rotar un elemento) no ocurra de golpe, sino con una animación suave*/
+}
+
+.item:hover {
+    transform: scale(1.05); /* Efecto hover como en YouTube */
+    cursor: pointer;
+}
+
+
