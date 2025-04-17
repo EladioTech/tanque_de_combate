@@ -27,4 +27,40 @@
     cursor: pointer;
 }
 
+.bombilla {
+    background-color: #fff8dc;
+    color: #333;
+    padding: 12px;
+    margin: 20px auto;
+    border-left: 6px solid gold;
+    font-family: 'Courier New', monospace;
+    font-size: 16px;
+    max-width: 500px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    position: relative;
+    transition: opacity 0.5s ease;
+}
+
+.bombilla button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: gold;
+    border: none;
+    padding: 4px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #000;
+}
+/*quieres que las imágenes no sean gigantes*/
+.item img {  
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+
+
 

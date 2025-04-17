@@ -7,14 +7,19 @@
     <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
-    <!--caja para la pantalla de fondo o caja padre?-->
-    <div class="grid-contenedor"> 
-        <!-- Cajas hijas, se colocarán automáticamente en el grid -->
-        <div class="Fotografía de cabecera">
-            <img src="../imágenes/mesa_de_trabajo.jpg" alt="imagen de cabecera">mi mesa de trabajo</div>
+    <div class="grid-contenedor"> <!--caja padre?-->
+        
+        
+    💡  <div class="item"><!--Cajas hijas-->
+            <img src="../imágenes/mesa_de_trabajo.jpg" alt="imagen de cabecera">
+            <p>Mi mesa de trabajo</p>
+        </div> 
+    
+        <div class="item">
+            💡     <img src="../imágenes/Montserrat.jpg" alt="Retratos">
+            <p>Pintado de retratos
+        </div>
 
-
-        <div class="../imágenes/Montserrat.jpg" alt="Retratos">pintado de retratos</div>
             <img src="../imágenes/cascos.jpg" alt="F1">pintado de cascos de moto</div>
         <div class="Cascos">
             <img src="../imágenes/faros.JPG" alt="Faros">lacado de faros</div>
@@ -22,6 +27,10 @@
             <img src="../imágenes/llantas.JPG" alt="Llantas">pinrtado de llantas</div>
         <div class="Llantas">
             <img src"caja 4"</div>
+    </div>
+    <div class="bombilla" id="bombilla">
+        💡 ¡Que no se me vuelva a pasar llamar al hijo "item"!
+        <button onclick="cerrarBombilla()">Cerrar</button>
     </div>
 </body>
 </html>
