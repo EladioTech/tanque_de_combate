@@ -1,4 +1,4 @@
-.contenedor-grid {
+.grid-contenedor {
     display: grid; /* Activa Grid Layout: permite organizar los elementos hijos en filas y columnas */
     grid-template-columns: repeat(4, 1fr); /* Crea 4 columnas del mismo ancho (1fr = una fracción del espacio disponible) */
     gap: 20px; /* Añade espacio (10px) entre filas y columnas */

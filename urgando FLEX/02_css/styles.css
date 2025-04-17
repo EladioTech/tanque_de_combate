@@ -43,19 +43,19 @@
 }
 
 /*creo los hijos*/
-.amarillo {
+.flex-box amarillo {
     background-color: gold;
     order: 1; /*l valor de order debe ser un número entero, no lleva px*/
 }
-.naranja {
+.flex-box naranja {
     background-color: darksalmon;
     order: 1; /*y yo lo había escrito con px*/
 }
-.rojo {
+.flex-box rojo {
     background-color: red;
     order: 1;
 }
-.fucsia {
+.flex-box fucsia {
     background-color: fuchsia;
     order: 1;
 }
