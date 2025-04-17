@@ -8,6 +8,11 @@
 }
 
 .item {
+    display: flex; /* para centrar texto verticalmente */
+    /* 💡 QUE NO SE VUELVA A OLVIDAR*/
+    flex-direction: column; /* Esto es clave para que img y p estén uno encima del otro */
+    /* 💡 QUE NO SE VUELVA A OLVIDAR*/
+    overflow: hidden; /* ¡IMPORTANTE! Para que las imágenes no se salgan de la caja cuadrada */
     background-color: #ff6f61; /* Color de fondo rojizo-naranja para destacar */
     color: white; /* Texto en blanco */
     font-weight: bold; /* Texto en negrita */
@@ -15,16 +20,24 @@
     text-align: center; /* Centra el número dentro de la caja */
     border-radius: 0px; /* Sin bordes redondeados para que se vean más suaves */
     aspect-ratio: 1 / 1; /* 💡 Esto fuerza que las cajas sean CUADRADAS */
-    display: flex; /* para centrar texto verticalmente */
     justify-content: center;
     align-items: center;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); /* Sombra sutil para dar relieve */
     transition: transform 0.2s ease; /*Sirve para que cualquier transformación (como mover, escalar, rotar un elemento) no ocurra de golpe, sino con una animación suave*/
+    height: 250px; /* Ajustas este valor según necesitas*/
 }
 
 .item:hover {
     transform: scale(1.05); /* Efecto hover como en YouTube */
     cursor: pointer;
+}
+/*quieres que las imágenes no sean gigantes*/
+.item img {  
+    width: 100%;
+    height: auto;
+/*es como decirle: “Haz lo que tengas que hacer para llenar la caja sin deformarte. Si sobra imagen, recórtala.”*/
+    object-fit: cover; /* Recorta la imagen para que encaje sin deformarse */
+    border-radius: 8px;
 }
 
 .bombilla {
@@ -54,13 +67,6 @@
     font-weight: bold;
     color: #000;
 }
-/*quieres que las imágenes no sean gigantes*/
-.item img {  
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-}
-
 
 
 
