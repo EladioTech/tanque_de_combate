@@ -1,8 +1,8 @@
 .grid-contenedor {
     display: grid; /* Activa Grid Layout: permite organizar los elementos hijos en filas y columnas */
     grid-template-columns: repeat(4, 1fr); /* Crea 4 columnas del mismo ancho (1fr = una fracción del espacio disponible) */
-    gap: 20px; /* Añade espacio (10px) entre filas y columnas */
-    padding: 20px; /* Espacio interno (padding) dentro del contenedor, separando el contenido de los bordes */
+    gap: 20px; /* Es la separación entre cajas. Añade espacio (10px) entre filas y columnas */
+    padding: 20px; /* separa el contenido de los bordes */
     background-color: #121212; /* Fondo oscuro para parecerse a YouTube */
     min-height: 100vh; /* Que ocupe toda la altura de la pantalla */
 }
@@ -17,7 +17,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 20px;
+    padding: 20px; /*💡con cuatro valores, se colocan en el orden de las agujas del reloj*/
     font-size: 1.5rem;
     font-family: 'Courier New', monospace;
     border-radius: 8px;
@@ -105,19 +105,20 @@
 
 .contenedor-header {
     display: flex;
-    justify-content: space-between; /* pone el logo o título a la izquierda y el menú a la derecha */
+    /*justify-content: space-between; /* pone el logo o título a la izquierda y el menú a la derecha */
     align-items: center;
-    padding: 10px 30px; /* El primer valor (10px) es para arriba y abajo (top y bottom). El segundo valor (30px) es para izquierda y derecha (left y right).*/
+    padding: 10px; /* El primer valor (10px) es para arriba y abajo (top y bottom). El segundo valor (30px) es para izquierda y derecha (left y right).*/
   }
   
   .menu {
     display: flex;
     gap: 20px; /* separa los enlaces del menú */
+    margin-right: 100 100 100 100;
   }
   
   .menu a {
     text-decoration: none;
-    color: white; /* o el color que estés usando */
+    color: rgb(252, 9, 9); /* o el color que estés usando */
     font-weight: bold;
   }
   
