@@ -103,6 +103,24 @@
     color: #ff6f61;
 }
 
+.contenedor-header {
+    display: flex;
+    justify-content: space-between; /* pone el logo o título a la izquierda y el menú a la derecha */
+    align-items: center;
+    padding: 10px 30px; /* El primer valor (10px) es para arriba y abajo (top y bottom). El segundo valor (30px) es para izquierda y derecha (left y right).*/
+  }
+  
+  .menu {
+    display: flex;
+    gap: 20px; /* separa los enlaces del menú */
+  }
+  
+  .menu a {
+    text-decoration: none;
+    color: white; /* o el color que estés usando */
+    font-weight: bold;
+  }
+  
 
 
 
