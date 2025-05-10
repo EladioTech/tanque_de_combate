@@ -3,65 +3,72 @@
 
 <head>
     <meta charset="UTF-8">
+    <!--Esto le dice al navegador que escale el diseño correctamente en móviles-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página en proceso de creación-Galería de Trabajos</title>
+    <meta name="description"
+        content="Aerografia79: arte con alma, técnica con corazón. Pintura artística, retratos, llantas y más." />
+    <meta name="keywords" content="arte, pintura, retratos, llantas, cascos, Kolectivo79, lacado" />
+    <meta name="author" content="Eladio Rey-Santacruz" />
+    <!-- Meta social (Open Graph, para Facebook y otros) -->
+    <meta property="og:title" content="Aerografia79 - Arte con técnica" />
+    <meta property="og:description"
+        content="Arte con alma, técnica con corazón. Servicios de pintura artística y personalizados." />
+    <meta property="og:image" content="https://kolectivo79.surge.sh/img/kolectivo79-logo.webp" />
+    <meta property="og:url" content="https://kolectivo79.surge.sh/" />
+    <meta property="og:type" content="website" />
+    <title>Página en proceso de creación - Galería de Trabajos</title>
     <link rel="stylesheet" href="styles.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body>
-    <div class="contenedor"> <!--caja padre?-->
+    <div class="barra-superior">
+        <button class="menu-toggle" aria-label="Abrir menú">
+            <span class="hamburguesa"></span>
+            <span class="hamburguesa"></span>
+            <span class="hamburguesa"></span>
+            <span class="texto-menu">Menú</span>
+        </button>
 
-        <div class="presentacion">
-            <!--💡<img src="../imágenes/blanco_y_amarillo.png" alt="imágen de cabecera"-->
-            <h1>Bienvenido a Kolectivo79</h1>
-            <p>Arte con alma, técnica con corazón.</p>
+        <div class="redes-sociales">
+            <a href="https://www.instagram.com/aerografia79/" target="_blank" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
         </div>
+    </div>
 
+    <div class="presentacion">
+        <h1>Bienvenido a Aerografia79</h1>
+        <p>Arte con alma, técnica con corazón</p>
+    </div>
 
-        <div class="hijos"> <!--💡 -->
-            <img src="../imágenes/Montserrat.jpg" alt="Retratos">
-            <p>Pintado de retratos</p>
+    <div class="contenedor">
+
+        <div class="grupo-caja">
+            <div class="caja">
+                <img src="img/flor rosa.webp" alt="Pintado de Retratos" loading="lazy" />
+            </div>
+            <p class="titulo-caja">Pintado de Retratos</p>
         </div>
-
-        <div class="hijos"> <!--💡 -->
-            <img src="../imágenes/cascos.jpg" alt="Cascos">
-            <p>Pintado de cascos de moto</p>
+        <div class="grupo-caja">
+            <div class="caja">
+                <img src="img/cascos.webp" alt="Cascos de moto personalizados" loading="lazy" />
+            </div>
+            <p class="titulo-caja">Pintado de Cascos</p>
         </div>
-
-        <div class="hijos"> <!--💡 -->
-            <img src="../imágenes/faros.JPG" alt="Faros">
-            <p>Lacado de faros</p>
+        <div class="grupo-caja">
+            <div class="caja">
+                <img src="img/faros.webp" alt="Lacado de faros" loading="lazy" />
+            </div>
+            <p class="titulo-caja">Lacado de Faros</p>
         </div>
-
-        <div class="hijos"> <!--💡 -->
-            <img src="../imágenes/llantas.JPG" alt="Llantas">
-            <p>Pintado de llantas</p>
+        <div class="grupo-caja">
+            <div class="caja">
+                <img src="img/llantas.webp" alt="Pintado de Llantas de coche" loading="lazy" />
+            </div>
+            <p class="titulo-caja">Pintado de Llantas</p>
         </div>
-    </div> <!--💡 CUANDO NO SE ESTIREN LOS TEXTOS RECORDAR ESTO-->
-
-    <!--</div> marco un aviso en la web
-        <div class="bombilla" id="bombilla">
-        💡 ¡Que no se me vuelva a pasar llamar al hijo "item"!
-        <button onclick="cerrarBombilla()">Cerrar</button>
-        </div>-->
-    <header>
-        <div class="contenedor-header">
-            <nav class="menu">
-                <a href="#encargos">Encargos</a>
-                <a href="#contacto">Contacto</a>
-                <a href="#servicios">Otros servicios que presto</a>
-            </nav>
-        </div>
-    </header>
-
-
-    <!-- JS en la misma carpeta -->
-    <script src="../02_js/script.js"></script>
-    
-    <footer class="footer">
-        <p>&copy; Kolectivo79 - Arte con alma, técnica con corazón</p>
-    </footer>
+    </div>
 
 </body>
 
