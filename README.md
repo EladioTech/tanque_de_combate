@@ -59,7 +59,7 @@ _Añadir capturas del diseño una vez finalizado._
 ## ✍️ Autor
 
 Eladio Rey-Santacruz  
-📸 Instagram: [@kolectivo79](https://www.instagram.com/kolectivo79/)
+📸 Instagram: [@aerografia79](https://www.instagram.com/aerografia79/)
 
 ---
 
