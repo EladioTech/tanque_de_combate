@@ -5,20 +5,34 @@
     <meta charset="UTF-8">
     <!--Esto le dice al navegador que escale el diseño correctamente en móviles-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Aerografia79: retratos personalizados, aerografía, restauración de faros, llantas y cascos. Arte único hecho a mano en cada detalle." />
-    <meta name="keywords" content="pintura personalizada, retratos a mano, aerografía, arte en cascos, lacado de faros, pintura de llantas, arte exclusivo, aerografia en guadalajara, Eladio Rey" />
-    <meta name="author" content="Eladio Rey - Santacruz" />
+    <meta name="description" content="Retratos personalizados y aerografía en cascos, llantas y faros. Arte único, restauración y diseño exclusivo en Aerografia79.">
+    <meta name="keywords" content="pintura personalizada, retratos a mano, aerografía, arte en cascos, lacado de faros, pintura de llantas, arte exclusivo, aerografia en guadalajara, Eladio Rey">
+    <meta name="author" content="Eladio Rey - Santacruz">
     <meta name="robots" content="index, follow">
     <!-- Meta social (Open Graph, para Facebook y otros) -->
-    <meta property="og:title" content="Aerografia79-arte-personalizado" />
-    <meta property="og:description" content="Arte con alma, técnica con corazón. Servicios de pintura artística y personalizada." />
-    <meta property="og:image" content="https://aerografia79.surge.sh/img/logo.webp" />
-    <meta property="og:url" content="https://aerografia79.surge.sh/" />
-    <meta property="og:type" content="website" />
-    <title>Las 3 certezas antes de comprar - Aerografia79</title>
+    <meta property="og:title" content="Retratos y Arte personalizado en cascos y más | Aerografia79">
+    <meta property="og:description" content="Arte exclusivo pintado a mano: retratos, cascos, faros y llantas personalizados. Conoce el trabajo único de Aerografia79.">
+    <meta property="og:image" content="https://aerografia79.surge.sh/img/logo.webp">
+    <meta property="og:url" content="https://aerografia79.surge.sh/">
+    <meta property="og:type" content="website">
+    <title>Retratos y Arte personalizado en cascos y más | Aerografia79</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="canonical" href="https://aerografia79.surge.sh/">
+    <!-- Favicon básico -->
+    <link rel="icon" href="iconos/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/png" sizes="16x16" href="iconos/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="iconos/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="iconos/favicon-96x96.png">
+    <!-- SVG Favicon -->
+    <link rel="icon" href="iconos/favicon.svg" type="image/svg+xml">
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="iconos/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-title" content="Aerografia79">
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="iconos/site.webmanifest">
+    <!-- Microsoft Tiles (opcional) -->
+    <meta name="theme-color" content="#ffffff">
 </head>
 
 <body>
@@ -27,14 +41,14 @@
             <span class="hamburguesa"></span>
             <span class="hamburguesa"></span>
             <span class="hamburguesa"></span>
-            <span class="texto-menu">Menú</span>
+            <!--<span class="texto-menu">Menú</span>-->
         </button>
 
         <div class="redes-sociales">
             <!--<a href="https://www.instagram.com/aerografia79/" target="_blank" aria-label="Instagram">
                 <i class="fab fa-instagram"></i>
             </a>-->
-            <a href="https://aerografia79.blogspot.com/" target="_blank" aria-label="Blog">
+            <a href="https://aerografia79.blogspot.com/" target="_blank" rel="noopener noreferrer" aria-label="Blog">
                 <i class="fas fa-blog"></i>
             </a>
             <a href="https://www.youtube.com/@aerografia79" target="_blank" title="YouTube">
@@ -43,7 +57,7 @@
         </div>
     </div>
 
-    <nav class="menu-flotante">
+    <nav id="menu" class="menu-flotante">
         <a href="#sobre-mi">Sobre mi</a>
         <a href="#por-que-un-retrato">¿Por qué un retrato?</a>
         <a href="#a-la-venta">A la venta</a>
@@ -70,7 +84,7 @@
     </section>
 
     <section id="por-que-un-retrato" class="fade-in-up">
-        <h1>¿Por qué encargar un retrato?</h1>
+        <h2>¿Por qué encargar un retrato personalizado?</h2>
         <p><strong>1. Confianza en el producto:</strong> Un retrato es una obra única, hecha a mano, que capta
             emociones, memorias y personalidad. Verás calidad, técnica y alma en cada trazo.</p>
         <p><strong>2. Confianza en el artista:</strong> Puedes ver ejemplos reales de mi trabajo. Clientes satisfechos
@@ -84,32 +98,39 @@
             <li>"Es una forma de honrar a alguien especial."</li>
             <li>"No es un gasto, es una inversión en recuerdos y emociones."</li>
         </ul>
-        <a href="certezas.html" target="_blank">Leer el artículo completo: Las 3 certezas antes de comprar</a>
+        <a href="certezas.html" target="_blank" title="Las 3 certezas antes de comprar un retrato personalizado">Leer el
+            artículo completo: Las 3 certezas antes de comprar</a>
     </section>
 
     <!-- Sección A la venta -->
     <section id="a-la-venta" class="fade-in-up">
-        <h1>A la venta</h1>
+        <h2>A la venta</h2>
         <p>Obras disponibles para comprar o por encargo.</p>
 
         <!-- Galería de imágenes -->
         <div class="galeria-venta">
             <div class="cuadro">
-                <img src="venta/cielo.webp" alt="Retrato artístico de la Virgen María sosteniendo un niño con técnica de aerografía" loading="lazy">
+                <img src="venta/cielo.webp"
+                    alt="Retrato artístico de la Virgen María sosteniendo un niño con técnica de aerografía"
+                    loading="lazy">
                 <p class="titulo-cuadro">590€ - Cielo y Tierra</p>
                 <p>90 x 60cm</p>
                 <p>Aerografo sobre plancha de cartón yeso</p>
                 <p>2024</p>
             </div>
             <div class="cuadro">
-                <img src="venta/santa.webp" alt="Retrato artístico de santa claus mirando por la ventana con técnica de aerografía" loading="lazy">
+                <img src="venta/santa.webp"
+                    alt="Retrato artístico de santa claus mirando por la ventana con técnica de aerografía"
+                    loading="lazy">
                 <p class="titulo-cuadro">560€ - Santa Claus</p>
                 <p>70 x 50cm</p>
                 <p>Aerografo sobre plancha de cartón yeso</p>
                 <p>2024</p>
             </div>
             <div class="cuadro">
-                <img src="venta/rey.webp" alt="Retrato artístico de la santisima trinidad; padre, hijo y espiritu santo con técnica de aerografía" loading="lazy">
+                <img src="venta/rey.webp"
+                    alt="Retrato artístico de la santisima trinidad; padre, hijo y espiritu santo con técnica de aerografía"
+                    loading="lazy">
                 <p class="titulo-cuadro">120€ - Rey de Reyes, Señor de Señores</p>
                 <p>outlet</p>
                 <p>El pladur tiene un pequeño desperfecto en un lateral (mordisco)</p>
@@ -120,7 +141,9 @@
             </div>
 
             <div class="cuadro">
-                <img src="venta/rosa.webp" alt="Retrato artístico de la virgen maria con nubes y paloma con técnica de aerografía" loading="lazy">
+                <img src="venta/rosa.webp"
+                    alt="Retrato artístico de la virgen maria con nubes y paloma con técnica de aerografía"
+                    loading="lazy">
                 <p class="titulo-cuadro">560€ - Preciosa rosa, Reina de los Cielos</p>
                 <p>90 x 60cm</p>
                 <p>Aerografo sobre plancha de cartón yeso</p>
@@ -128,7 +151,8 @@
             </div>
 
             <div class="cuadro">
-                <img src="venta/jesus.webp" alt="Retrato artístico de cristo con aspecto actual con técnica de aerografía" loading="lazy">
+                <img src="venta/jesus.webp"
+                    alt="Retrato artístico de cristo con aspecto actual con técnica de aerografía" loading="lazy">
                 <p class="titulo-cuadro">Jesús de Nazareth</p>
                 <p>A la venta en "casa Alba" - Guadalajara</p>
                 <p>70 x 50cm</p>
@@ -137,7 +161,8 @@
             </div>
 
             <div class="cuadro">
-                <img src="venta/montserrat.webp" alt="Retrato artístico de montserrat caballé con técnica de aerografía" loading="lazy">
+                <img src="venta/montserrat.webp" alt="Retrato artístico de montserrat caballé con técnica de aerografía"
+                    loading="lazy">
                 <p class="titulo-cuadro">Montserrat</p>
                 <p>A la venta en galeria "Artistas Diversos"</p>
                 <p>65 x 50cm</p>
@@ -146,7 +171,9 @@
             </div>
 
             <div class="cuadro">
-                <img src="venta/mexico.webp" alt="Retrato artístico de india apache con su amigo pastor aleman con técnica de aerografía" loading="lazy">
+                <img src="venta/mexico.webp"
+                    alt="Retrato artístico de india apache con su amigo pastor aleman con técnica de aerografía"
+                    loading="lazy">
                 <p class="titulo-cuadro">280€ - México</p>
                 <p>70 x 50cm</p>
                 <p>Aerografo sobre plancha de cartón yeso</p>
@@ -159,7 +186,7 @@
 
     <!-- Sección Encargos -->
     <section id="encargos" class="fade-in-up">
-        <h1>Encargos personalizados</h1>
+        <h2>Encargos personalizados</h2>
         <p>
             ¿Tienes una idea en mente? ¿Un retrato, una moto, unas llantas, un casco con historia?
             Démosle forma. <strong><br>Todo encargo comienza con una conversación.</strong>
@@ -175,7 +202,7 @@
 
     <!-- Sección Contacto -->
     <section id="contacto" class="fade-in-up">
-        <h1>Contacto</h1>
+        <h2>Contacto</h2>
         <p>Escoge tu método preferido para ponerte en contacto conmigo:</p>
 
         <div class="botones-contacto" style="margin-top: 20px;">
@@ -200,31 +227,46 @@
 
         <div class="grupo-caja">
             <div class="caja">
-                <img src="img/flor-rosa.webp" alt="Pintado de Retratos" loading="lazy" />
+                <img src="img/flor-rosa.webp" alt="Pintado de Retratos" loading="lazy">
             </div>
             <p class="titulo-caja">Pintado de Retratos</p>
         </div>
         <div class="grupo-caja">
             <div class="caja">
-                <img src="img/cascos.webp" alt="Cascos de moto personalizados" loading="lazy" />
+                <img src="img/cascos.webp" alt="Cascos de moto personalizados" loading="lazy">
             </div>
             <p class="titulo-caja">Pintado de Cascos</p>
         </div>
         <div class="grupo-caja">
             <div class="caja">
-                <img src="img/faros.webp" alt="Lacado de faros" loading="lazy" />
+                <img src="img/faros.webp" alt="Lacado de faros" loading="lazy">
             </div>
             <p class="titulo-caja">Lacado de Faros</p>
         </div>
         <div class="grupo-caja">
             <div class="caja">
-                <img src="img/llantas.webp" alt="Pintado de Llantas de coche" loading="lazy" />
+                <img src="img/llantas.webp" alt="Pintado de Llantas de coche" loading="lazy">
             </div>
             <p class="titulo-caja">Pintado de Llantas</p>
         </div>
     </section>
 
     <script src="main.js" defer></script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Eladio Rey - Aerografia79",
+  "url": "https://aerografia79.surge.sh/",
+  "sameAs": [
+    "https://www.youtube.com/@aerografia79",
+    "https://es.pinterest.com/aerografia79/"
+  ],
+  "jobTitle": "Artista y pintor aerografía",
+  "description": "Retratos personalizados y arte en cascos, llantas y faros."
+}
+</script>
+
 
 </body>
 
