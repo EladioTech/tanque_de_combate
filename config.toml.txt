@@ -1,0 +1,2 @@
+baseURL = "https://EladioTech.github.io/tanque_de_combate/"
+publishDir = "docs"
