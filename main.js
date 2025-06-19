@@ -80,7 +80,6 @@ function generarJSONLDProductos() {
 function insertarJSONLD() {
     // Evita insertar si ya existe uno
     if (document.querySelector('script[type="application/ld+json"]')) return;
-
     const jsonLD = generarJSONLDProductos();
     const script = document.createElement('script');
     script.type = 'application/ld+json';
