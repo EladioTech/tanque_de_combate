@@ -4,41 +4,89 @@ document.addEventListener('DOMContentLoaded', function () {
     const enlacesMenu = document.querySelectorAll('.menu-flotante a');
     const secciones = document.querySelectorAll('section');
 
-    // Mostrar/ocultar el menú al hacer clic en el botón
+    // Mostrar/ocultar menú
     botonMenu.addEventListener('click', function (e) {
-        e.stopPropagation(); // Evita que el clic se propague al documento
-        menuFlotante.classList.toggle('mostrar'); // Alterna la visibilidad del menú
+        e.stopPropagation();
+        menuFlotante.classList.toggle('mostrar');
     });
 
-    // Ocultar el menú si se hace clic fuera de él
+    // Ocultar menú si clic fuera
     document.addEventListener('click', function (e) {
         if (!menuFlotante.contains(e.target) && !botonMenu.contains(e.target)) {
-            menuFlotante.classList.remove('mostrar'); // Oculta el menú
+            menuFlotante.classList.remove('mostrar');
         }
     });
 
-    // Cierra el menú al hacer clic en una opción del menú (después de un pequeño retardo)
+    // Cambiar sección al click en menú
     enlacesMenu.forEach(function (enlace) {
         enlace.addEventListener('click', function (e) {
-            // Evita que se recargue la página
             e.preventDefault();
-            
-            // Obtener el id de la sección a la que corresponde el enlace
             const idSeccion = enlace.getAttribute('href');
 
-            // Ocultar todas las secciones
-            secciones.forEach(function (seccion) {
-                seccion.classList.remove('active');
-            });
-
-            // Mostrar la sección correspondiente
+            secciones.forEach(s => s.classList.remove('active'));
             const seccionActiva = document.querySelector(idSeccion);
-            if (seccionActiva) {
-                seccionActiva.classList.add('active');
-            }
+            if (seccionActiva) seccionActiva.classList.add('active');
 
-            // Ocultar el menú
             menuFlotante.classList.remove('mostrar');
         });
     });
+
+    insertarJSONLD();
 });
+
+function generarJSONLDProductos() {
+    const productos = [];
+    document.querySelectorAll('.galeria-venta .cuadro').forEach(cuadro => {
+        const nombre = cuadro.querySelector('.titulo-cuadro')?.textContent.trim() || '';
+        const img = cuadro.querySelector('img')?.src || '';
+        const descripcionPartes = [];
+
+        cuadro.querySelectorAll('p:not(.titulo-cuadro)').forEach(p => {
+            descripcionPartes.push(p.textContent.trim());
+        });
+        const descripcion = descripcionPartes.join(' • ');
+
+        let precio = null;
+        const precioMatch = nombre.match(/(\d+)\s*€/);
+        if (precioMatch) {
+            precio = precioMatch[1];
+        }
+
+        const producto = {
+            "@type": "Product",
+            "name": nombre.replace(/\d+\s*€/, '').trim(),
+            "image": img,
+            "description": descripcion,
+            "offers": {
+                "@type": "Offer",
+                "priceCurrency": "EUR",
+                "availability": "https://schema.org/InStock"
+            }
+        };
+
+        if (precio) {
+            producto.offers.price = precio;
+        }
+
+        productos.push(producto);
+    });
+
+    return {
+        "@context": "https://schema.org",
+        "@graph": productos
+    };
+}
+
+function insertarJSONLD() {
+    // Evita insertar si ya existe uno
+    if (document.querySelector('script[type="application/ld+json"]')) return;
+
+    const jsonLD = generarJSONLDProductos();
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(jsonLD, null, 2);
+    document.head.appendChild(script);
+}
+
+
+
