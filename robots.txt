@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://aerografia79.surge.sh/sitemap.xml
+Sitemap: https://eladiotech.github.io/tanque_de_combate/sitemap.xml
+
