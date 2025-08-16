@@ -330,3 +330,16 @@ a:focus,
     }
 }
 
+.footer-guia {
+  background-color: #f5c96c;
+  padding: 15px;
+  font-size: 0.9em;
+  text-align: center;
+  color: #333;
+  border-top: 1px solid #ddd;
+}
+
+.footer-guia strong {
+  color: #000;
+}
+
