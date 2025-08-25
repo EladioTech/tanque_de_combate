@@ -23,13 +23,13 @@ También se incluye acceso a redes sociales como Instagram.
 - HTML5
 - CSS3 (con Grid y Flexbox)
 - Font Awesome (para iconos sociales)
-- Surge.sh (para despliegue gratuito)
+- Github pages (para despliegue gratuito)
 
 ---
 
 ## 🌐 Sitio en vivo
 
-👉 [https://aerografia79.surge.sh](https://aerografia79.surge.sh)
+👉 https://eladiotech.github.io/tanque_de_combate/
 
 ---
 
@@ -59,7 +59,7 @@ _Añadir capturas del diseño una vez finalizado._
 ## ✍️ Autor
 
 Eladio Rey-Santacruz  
-📸 Instagram: [@aerografia79](https://www.instagram.com/aerografia79/)
+📸 Instagram: [@aerografia79](https://www.instagram.com/aerografia__79/)
 
 ---
 
