@@ -93,6 +93,28 @@ function mensajeDescarga() {
     alert("¡Gracias por tu interés! Tu dossier de ilustraciones se descargará automáticamente.");
 }
 
+function abrirYDscargarDossier(e) {
+    e.preventDefault();
+
+    const pdfURL = "Dossier_SantaCruz.pdf";  // ajusta si está en carpeta docs/
+
+    // Mensaje de agradecimiento
+    alert("¡Gracias por tu interés! Tu dossier de ilustraciones se abrirá ahora y se descargará automáticamente.");
+
+    // Abrir en nueva pestaña
+    window.open(pdfURL, "_blank");
+
+    // Forzar descarga después de 1 segundo
+    setTimeout(() => {
+        const enlace = document.createElement("a");
+        enlace.href = pdfURL;
+        enlace.download = "Dossier_SantaCruz.pdf";
+        document.body.appendChild(enlace);
+        enlace.click();
+        enlace.remove();
+    }, 1000);
+}
+
 // Galería de servicios
 const fotosServicios = {
     retratos: ["servicios/retratos1.webp", "servicios/retratos2.webp", "servicios/retratos3.webp"],
