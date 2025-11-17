@@ -87,5 +87,67 @@ function insertarJSONLD() {
     document.head.appendChild(script);
 }
 
+// últimos cambios 17/11/2025
 
+function mensajeDescarga() {
+    alert("¡Gracias por tu interés! Tu dossier de ilustraciones se descargará automáticamente.");
+}
+
+// Galería de servicios
+const fotosServicios = {
+    retratos: ["servicios/retratos1.jpg", "servicios/retratos2.jpg"],
+    cascos: ["servicios/casco1.jpg", "servicios/casco2.jpg"],
+    faros: ["servicios/faros1.webp"],
+    llantas: ["servicios/llantas1.webp"],
+};
+
+// Crear contenedor de galería dinámico
+const galeriaServicios = document.createElement("div");
+galeriaServicios.id = "galeria-servicios";
+galeriaServicios.style.display = "none";
+galeriaServicios.style.position = "fixed";
+galeriaServicios.style.top = "0";
+galeriaServicios.style.left = "0";
+galeriaServicios.style.width = "100%";
+galeriaServicios.style.height = "100%";
+galeriaServicios.style.backgroundColor = "rgba(0,0,0,0.9)";
+galeriaServicios.style.padding = "50px";
+galeriaServicios.style.overflow = "auto";
+galeriaServicios.style.zIndex = "1000";
+galeriaServicios.style.textAlign = "center";
+document.body.appendChild(galeriaServicios);
+
+// Cerrar galería
+const btnCerrar = document.createElement("button");
+btnCerrar.textContent = "Cerrar";
+btnCerrar.style.padding = "10px 20px";
+btnCerrar.style.marginBottom = "20px";
+btnCerrar.style.fontSize = "18px";
+btnCerrar.style.cursor = "pointer";
+btnCerrar.onclick = () => galeriaServicios.style.display = "none";
+galeriaServicios.appendChild(btnCerrar);
+
+const divImagenes = document.createElement("div");
+galeriaServicios.appendChild(divImagenes);
+
+// Eventos click en cada caja
+document.querySelectorAll(".caja").forEach(caja => {
+    caja.addEventListener("click", () => {
+        const servicio = caja.dataset.servicio;
+        divImagenes.innerHTML = ""; // limpiar galería
+        fotosServicios[servicio].forEach(src => {
+            const img = document.createElement("img");
+            img.src = src;
+            img.style.width = "80%";       // ocupa el 80% del ancho de la ventana
+            img.style.maxWidth = "1200px";  // no se haga gigantesca en pantallas muy grandes
+            img.style.height = "auto";      // mantiene proporción
+            img.style.margin = "20px 0";    // un poco más de margen
+            img.style.border = "3px solid white";
+            img.style.borderRadius = "10px";
+
+            divImagenes.appendChild(img);
+        });
+        galeriaServicios.style.display = "block";
+    });
+});
 

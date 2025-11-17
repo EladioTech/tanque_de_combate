@@ -343,3 +343,24 @@ a:focus,
   color: #000;
 }
 
+/* === ÚLTIMOS CAMBIOS 17/11/2025===*/
+
+#galeria-servicios img {
+    transition: transform 0.3s;
+}
+
+#galeria-servicios img:hover {
+    transform: scale(1.05);
+}
+
+#galeria-servicios button {
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+#galeria-servicios button:hover {
+    background-color: #e1306c;
+}
