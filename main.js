@@ -95,8 +95,8 @@ function mensajeDescarga() {
 
 // Galería de servicios
 const fotosServicios = {
-    retratos: ["servicios/retratos1.jpg", "servicios/retratos2.jpg"],
-    cascos: ["servicios/casco1.jpg", "servicios/casco2.jpg"],
+    retratos: ["servicios/retratos1.webp", "servicios/retratos2.webp", "servicios/retratos3.webp"],
+    cascos: ["servicios/casco1.webp", "servicios/casco2.webp", "servicios/casco3.webp"],
     faros: ["servicios/faros1.webp"],
     llantas: ["servicios/llantas1.webp"],
 };
