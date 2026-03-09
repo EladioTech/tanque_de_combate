@@ -364,3 +364,42 @@ a:focus,
 #galeria-servicios button:hover {
     background-color: #e1306c;
 }
+
+/*crm vivienda*/
+.producto-crm{
+    max-width:600px;
+    margin:60px auto;
+    padding:30px;
+    text-align:center;
+    border:1px solid #ddd;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    background:white;
+}
+
+.producto-crm img{
+    width:100%;
+    max-width:500px;
+    margin:20px 0;
+    border-radius:6px;
+}
+
+.precio{
+    font-size:22px;
+    font-weight:bold;
+    margin:15px 0;
+}
+
+.boton-descarga{
+    display:inline-block;
+    padding:12px 25px;
+    background:#2c7be5;
+    color:white;
+    text-decoration:none;
+    border-radius:6px;
+    font-weight:bold;
+}
+
+.boton-descarga:hover{
+    background:#1a5dc9;
+}
