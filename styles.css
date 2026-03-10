@@ -403,3 +403,41 @@ a:focus,
 .boton-descarga:hover{
     background:#1a5dc9;
 }
+
+.producto-crm{
+    max-width:900px;
+    margin:80px auto;
+    text-align:center;
+}
+
+.producto-crm img{
+    max-width:100%;
+    border-radius:8px;
+    margin:20px 0;
+}
+
+.lista-crm{
+    list-style:none;
+    padding:0;
+    margin:20px 0;
+}
+
+.lista-crm li{
+    margin:6px 0;
+}
+
+.subtitulo-crm{
+    font-size:18px;
+    opacity:0.8;
+}
+
+.licencia-crm{
+    margin-top:15px;
+    font-size:14px;
+    opacity:0.8;
+}
+
+.titulo-crm{
+font-size:18px;
+line-height:1.3;
+}

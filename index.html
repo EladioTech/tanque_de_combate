@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <!--Esto le dice al navegador que escale el diseño correctamente en móviles-->
+    <!-- Esto le dice al navegador que escale el diseño correctamente en móviles -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
         content="Retratos personalizados y aerografía en cascos, llantas y faros. Arte único, restauración y diseño exclusivo en Aerografia79.">
@@ -58,6 +58,28 @@
   "description": "Retratos personalizados y arte en cascos, llantas y faros."
 }
     </script>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "CRM Vivienda",
+  "operatingSystem": "Windows",
+  "applicationCategory": "FinanceApplication",
+  "offers": {
+    "@type": "Offer",
+    "price": "12",
+    "priceCurrency": "EUR"
+  },
+  "description": "Software para controlar los gastos del hogar: hipoteca, facturas, impuestos y exportación a Excel.",
+  "downloadUrl": "https://drive.google.com/uc?export=download&id=1lGDmdjqoONGGFmH-lzQ_fswAGv3XAMAI",
+  "creator": {
+    "@type": "Person",
+    "name": "Eladio Rey"
+  }
+}
+</script>
+
 </head>
 
 <body>
@@ -66,13 +88,13 @@
             <span class="hamburguesa"></span>
             <span class="hamburguesa"></span>
             <span class="hamburguesa"></span>
-            <!--<span class="texto-menu">Menú</span>-->
+            <!-- <span class="texto-menu">Menú</span> -->
         </button>
 
         <div class="redes-sociales">
-            <!--<a href="https://www.instagram.com/aerografia__79/" target="_blank" aria-label="Instagram">
+            <!-- <a href="https://www.instagram.com/aerografia__79/" target="_blank" aria-label="Instagram">
                 <i class="fab fa-instagram"></i>
-            </a>-->
+            </a> -->
             <a href="https://aerografia79.blogspot.com/" target="_blank" rel="noopener noreferrer" aria-label="Blog">
                 <i class="fas fa-blog"></i>
             </a>
@@ -81,22 +103,21 @@
             </a>
         </div>
     </div>
-
+    <!-- Menú -->
     <nav id="menu" class="menu-flotante">
 
         <a href="#sobre-mi">Sobre mi</a>
 
-        <!--<a href="#por-que-un-retrato">¿Por qué un retrato?</a>-->
+        <!-- <a href="#por-que-un-retrato">¿Por qué un retrato?</a> -->
 
-        <a href="https://drive.google.com/uc?export=download&id=1lGDmdjqoONGGFmH-lzQ_fswAGv3XAMAI" target="_blank">💻
-            CRM Vivienda</a>
+        <a href="#crm-vivienda">💻 CRM Vivienda<h2 class="titulo-crm">Software para controlar los gastos del hogar</h2></a>
 
         <a href="#" onclick="abrirYDscargarDossier(event)">
             📘 <strong>Explora mi dossier de ilustraciones</strong><br>
             Descubre precios, tamaños y detalles de cada obra.
         </a>
 
-        <!--<a href="#a-la-venta">A la venta</a>/-->
+        <!-- <a href="#a-la-venta">A la venta</a> -->
 
         <a href="#encargos">Encargos</a>
         <a href="#contacto">Contacto</a>
@@ -126,20 +147,36 @@
             Así que esta web no es solo mi escaparate artístico, sino también el punto de encuentro de mis dos mundos:
             la pintura y el software.
         </p>
-        <!--<p class="descripcion-dia-madre">
+        <!-- <p class="descripcion-dia-madre">
             ¿Buscas un regalo especial para el Día de la Madre?<br>
             Sorpréndela con un retrato único hecho a mano.<br>
             <strong>Será un recuerdo para toda la vida.</strong>
-        </p>/-->
+        </p> -->
     </section>
 
-    <!--mi crm sección producto-->
-    <section class="producto-crm">
+    <!-- SECCIÓN CRM VIVIENDA -->
+    <section id="crm-vivienda" class="producto-crm">
 
         <h2>CRM Vivienda</h2>
-        <p>Control anual de gastos del hogar</p>
+        <p class="subtitulo-crm">Controla todos los gastos de tu hogar en una sola tabla anual</p>
 
-        <img src="img/crm.png" alt="CRM Vivienda captura del programa">
+        <img src="img/crm.png" alt="Software CRM Vivienda para controlar gastos del hogar">
+
+        <div class="descripcion-crm">
+
+            <p>
+                CRM Vivienda es una herramienta sencilla pensada para organizar los gastos del hogar
+                de forma clara durante todo el año.
+            </p>
+
+            <ul class="lista-crm">
+                <li>✔ Control de hipoteca</li>
+                <li>✔ Facturas de luz, agua, gas e internet</li>
+                <li>✔ Impuestos y gastos de vivienda</li>
+                <li>✔ Exportación de datos a Excel</li>
+            </ul>
+
+        </div>
 
         <p class="precio">Precio: 12 €</p>
 
@@ -148,10 +185,20 @@
             ⬇ Descargar CRM Vivienda
         </a>
 
+        <p class="aviso-crm">
+            ⚠ Windows puede mostrar una advertencia de seguridad porque el programa no está firmado digitalmente.
+            Esto es normal en aplicaciones independientes.
+        </p>
+
+        <p class="licencia-crm">
+            Licencia válida durante <strong>1 año para un ordenador</strong>.<br>
+            Transcurrido ese periodo, la licencia puede renovarse para seguir utilizando el programa.
+        </p>
+
     </section>
 
-    <!-- Sección ¿por que un retrato?-->
-    <!--<section id="por-que-un-retrato" class="fade-in-up">
+    <!-- Sección ¿por que un retrato? -->
+    <!-- <section id="por-que-un-retrato" class="fade-in-up">
         <h2>¿Por qué encargar un retrato personalizado?</h2>
         <p><strong>1. Confianza en el producto:</strong> Un retrato es una obra única, hecha a mano, que capta
             emociones, memorias y personalidad. Verás calidad, técnica y alma en cada trazo.</p>
@@ -168,7 +215,7 @@
         </ul>
         <a href="certezas.html" target="_blank" title="Las 3 certezas antes de comprar un retrato personalizado">Leer el
             artículo completo: Las 3 certezas antes de comprar</a>
-    </section>-->
+    </section> -->
 
     <!-- Sección A la venta -->
     <section id="a-la-venta" class="fade-in-up">
@@ -300,7 +347,7 @@
         </div>
     </section>
 
-    <!--Las 4 Cajas-->
+    <!-- Las 4 Cajas -->
     <section class="contenedor">
 
         <div class="grupo-caja">
