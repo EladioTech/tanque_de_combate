@@ -17,22 +17,64 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Cambiar sección al click en menú
+    // GESTIÓN DE ENLACES DEL MENÚ - VERSIÓN DEFINITIVA
     enlacesMenu.forEach(function (enlace) {
         enlace.addEventListener('click', function (e) {
-            e.preventDefault();
-            const idSeccion = enlace.getAttribute('href');
+            const href = enlace.getAttribute('href');
 
-            secciones.forEach(s => s.classList.remove('active'));
-            const seccionActiva = document.querySelector(idSeccion);
-            if (seccionActiva) seccionActiva.classList.add('active');
+            // CASO 1: Enlace de Google Drive (CRM) - CON MENSAJE DE CORTESÍA
+            if (href && href.includes('drive.google.com')) {
+                console.log("🔗 Click en CRM - mostrando mensaje");
 
-            menuFlotante.classList.remove('mostrar');
+                // Prevenimos temporalmente para mostrar el mensaje
+                e.preventDefault();
+
+                // Mostrar mensaje amigable
+                alert("📢 ¡Gracias por tu interés en CRM Vivienda!\n\nSerás redirigido a Google Drive para iniciar la descarga.\n\nEl archivo pesa 94MB, así que puede tardar unos segundos.");
+
+                // Abrir el enlace después del mensaje
+                window.open(href, '_blank');
+
+                // Cerrar el menú
+                menuFlotante.classList.remove('mostrar');
+
+                return; // Salimos
+            }
+
+            // CASO 2: Enlace del dossier PDF (tiene onclick)
+            if (enlace.getAttribute('onclick')) {
+                console.log("📘 Click en Dossier");
+                menuFlotante.classList.remove('mostrar');
+                return; // Dejamos que su función maneje el clic
+            }
+
+            // CASO 3: Enlaces internos (empiezan con #)
+            if (href && href.startsWith('#')) {
+                console.log("📍 Click en enlace interno:", href);
+                e.preventDefault(); // Solo prevenimos para estos
+
+                // Buscar la sección por su ID
+                try {
+                    const seccionActiva = document.querySelector(href);
+                    if (seccionActiva) {
+                        secciones.forEach(s => s.classList.remove('active'));
+                        seccionActiva.classList.add('active');
+                    } else {
+                        console.warn("⚠️ No se encontró la sección:", href);
+                    }
+                } catch (error) {
+                    console.error("❌ Error con selector:", href, error);
+                }
+
+                menuFlotante.classList.remove('mostrar');
+            }
         });
     });
 
     insertarJSONLD();
 });
+
+// ===== TUS FUNCIONES EXISTENTES (NO CAMBIAN) =====
 
 function generarJSONLDProductos() {
     const productos = [];
@@ -78,7 +120,6 @@ function generarJSONLDProductos() {
 }
 
 function insertarJSONLD() {
-    // Evita insertar si ya existe uno
     if (document.querySelector('script[type="application/ld+json"]')) return;
     const jsonLD = generarJSONLDProductos();
     const script = document.createElement('script');
@@ -87,24 +128,15 @@ function insertarJSONLD() {
     document.head.appendChild(script);
 }
 
-// últimos cambios 17/11/2025
-
 function mensajeDescarga() {
     alert("¡Gracias por tu interés! Tu dossier de ilustraciones se descargará automáticamente.");
 }
 
 function abrirYDscargarDossier(e) {
     e.preventDefault();
-
-    const pdfURL = "Dossier_SantaCruz.pdf";  // ajusta si está en carpeta docs/
-
-    // Mensaje de agradecimiento
+    const pdfURL = "Dossier_SantaCruz.pdf";
     alert("¡Gracias por tu interés! Tu dossier de ilustraciones se abrirá ahora y se descargará automáticamente.");
-
-    // Abrir en nueva pestaña
     window.open(pdfURL, "_blank");
-
-    // Forzar descarga después de 1 segundo
     setTimeout(() => {
         const enlace = document.createElement("a");
         enlace.href = pdfURL;
@@ -123,7 +155,6 @@ const fotosServicios = {
     llantas: ["servicios/llantas1.webp"],
 };
 
-// Crear contenedor de galería dinámico
 const galeriaServicios = document.createElement("div");
 galeriaServicios.id = "galeria-servicios";
 galeriaServicios.style.display = "none";
@@ -139,7 +170,6 @@ galeriaServicios.style.zIndex = "1000";
 galeriaServicios.style.textAlign = "center";
 document.body.appendChild(galeriaServicios);
 
-// Cerrar galería
 const btnCerrar = document.createElement("button");
 btnCerrar.textContent = "Cerrar";
 btnCerrar.style.padding = "10px 20px";
@@ -152,24 +182,21 @@ galeriaServicios.appendChild(btnCerrar);
 const divImagenes = document.createElement("div");
 galeriaServicios.appendChild(divImagenes);
 
-// Eventos click en cada caja
 document.querySelectorAll(".caja").forEach(caja => {
     caja.addEventListener("click", () => {
         const servicio = caja.dataset.servicio;
-        divImagenes.innerHTML = ""; // limpiar galería
+        divImagenes.innerHTML = "";
         fotosServicios[servicio].forEach(src => {
             const img = document.createElement("img");
             img.src = src;
-            img.style.width = "80%";       // ocupa el 80% del ancho de la ventana
-            img.style.maxWidth = "1200px";  // no se haga gigantesca en pantallas muy grandes
-            img.style.height = "auto";      // mantiene proporción
-            img.style.margin = "20px 0";    // un poco más de margen
+            img.style.width = "80%";
+            img.style.maxWidth = "1200px";
+            img.style.height = "auto";
+            img.style.margin = "20px 0";
             img.style.border = "3px solid white";
             img.style.borderRadius = "10px";
-
             divImagenes.appendChild(img);
         });
         galeriaServicios.style.display = "block";
     });
 });
-
