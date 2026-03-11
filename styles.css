@@ -343,7 +343,7 @@ a:focus,
   color: #000;
 }
 
-/* === ÚLTIMOS CAMBIOS 17/11/2025===*/
+/* === ÚLTIMOS CAMBIOS 17/11/2025 ===*/
 
 #galeria-servicios img {
     transition: transform 0.3s;
@@ -440,4 +440,13 @@ a:focus,
 .titulo-crm{
 font-size:18px;
 line-height:1.3;
+}
+
+/* Estilo para el subtítulo del CRM en el menú */
+.subtitulo-crm-menu {
+    font-size: 14px;
+    font-weight: normal;
+    display: block;
+    line-height: 1.3;
+    opacity: 0.8;
 }
