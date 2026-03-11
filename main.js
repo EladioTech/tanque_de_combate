@@ -149,10 +149,10 @@ function abrirYDscargarDossier(e) {
 
 // Galería de servicios
 const fotosServicios = {
-    retratos: ["servicios/retratos1.webp", "servicios/retratos2.webp", "servicios/retratos3.webp"],
-    cascos: ["servicios/casco1.webp", "servicios/casco2.webp", "servicios/casco3.webp"],
-    faros: ["servicios/faros1.webp"],
-    llantas: ["servicios/llantas1.webp"],
+    retratos: ["servicios/madre-de-luz-arte-religioso-santacruz.webp", "servicios/papa-francisco-humildad-cercania-santacruz.webp", "servicios/santa-claus-alegria-esperanza-navidad-santacruz.webp"],
+    cascos: ["servicios/sonic-casco-retro-alan-prost-aerografia79.webp", "servicios/indio-atletico-de-madrid-aerografia79.webp", "servicios/proceso-aerografia-en-casco-de-moto-aerografia79.webp"],
+    faros: ["servicios/lacado-faro-trasero-de-coche-aerografia79.webp"],
+    llantas: ["servicios/pintado-de-llantas-rm-azul-oviedo-aerografia79.webp"],
 };
 
 const galeriaServicios = document.createElement("div");
