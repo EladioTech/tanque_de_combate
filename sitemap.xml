@@ -14,5 +14,12 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+<!-- Añado url para el blog -->
+  <url>
+  <loc>https://eladiotech.github.io/tanque_de_combate/blog.html</loc>
+  <lastmod>2026-03-31</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.9</priority>
+</url>
 <!-- Puedes añadir más URLs si tienes otras páginas -->
 </urlset>
