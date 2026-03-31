@@ -150,7 +150,7 @@ function abrirYDscargarDossier(e) {
 // Galería de servicios
 const fotosServicios = {
     retratos: ["servicios/madre-de-luz-arte-religioso-santacruz.webp", "servicios/papa-francisco-humildad-cercania-santacruz.webp", "servicios/santa-claus-alegria-esperanza-navidad-santacruz.webp"],
-    cascos: ["servicios/sonic-casco-retro-alan-prost-aerografia79.webp", "servicios/indio-atletico-de-madrid-aerografia79.webp", "servicios/casco-de-moto-personalizado-chicago-bull-aerografia79.webp"],
+    cascos: ["servicios/sonic-casco-retro-alan-prost-aerografia79.webp", "servicios/indio-atletico-de-madrid-aerografia79.webp", "servicios/proceso-aerografia-en-casco-de-moto-aerografia79.webp"],
     faros: ["servicios/lacado-faro-trasero-de-coche-aerografia79.webp"],
     llantas: ["servicios/pintado-de-llantas-rm-azul-oviedo-aerografia79.webp"],
 };
