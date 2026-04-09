@@ -1,3 +1,5 @@
+console.log("LIGHTBOX JS CARGADO ✔");
+
 document.addEventListener('DOMContentLoaded', function () {
     const botonMenu = document.querySelector('.menu-toggle');
     const menuFlotante = document.querySelector('.menu-flotante');
@@ -198,5 +200,36 @@ document.querySelectorAll(".caja").forEach(caja => {
             divImagenes.appendChild(img);
         });
         galeriaServicios.style.display = "block";
+    });
+});
+
+// ===== LIGHTBOX GLOBAL =====
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+
+// Abrir imagen en grande
+function abrirLightbox(src) {
+    lightboxImg.src = src;
+    lightbox.style.display = "flex";
+}
+
+// Cerrar al hacer click fuera
+lightbox.addEventListener("click", () => {
+    lightbox.style.display = "none";
+    lightboxImg.src = "";
+});
+
+// ===== GALERÍA "A LA VENTA" =====
+document.querySelectorAll(".galeria-venta img").forEach(img => {
+    img.addEventListener("click", () => {
+        abrirLightbox(img.src);
+    });
+});
+
+// ===== IMÁGENES DE CAJAS (SERVICIOS) =====
+document.querySelectorAll(".caja img").forEach(img => {
+    img.addEventListener("click", (e) => {
+        e.stopPropagation(); // evita conflicto con el click de la caja
+        abrirLightbox(img.src);
     });
 });
