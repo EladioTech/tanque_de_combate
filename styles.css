@@ -106,15 +106,21 @@ a i:hover {
 
 .contenedor {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+
     padding: 20px;
     background-color: #f5c96c;
+
+    max-width: 1200px;
+    margin: 80px auto 0 auto;
+
+    box-sizing: border-box;
     justify-items: center;
-    margin-top: 80px;
 }
 
 .grupo-caja {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -123,13 +129,22 @@ a i:hover {
 .caja {
     width: 220px;
     height: 180px;
+
     overflow: hidden;
     border: 3px solid black;
     border-radius: 10px;
     box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
     cursor: pointer;
     transition: transform 0.3s;
-    text-decoration: none;
+}
+
+/* seguro anti-desplazamiento */
+* {
+    box-sizing: border-box;
+}
+
+.contenedor > .grupo-caja {
+    justify-self: center;
 }
 
 .caja img {
@@ -449,4 +464,12 @@ line-height:1.3;
     display: block;
     line-height: 1.3;
     opacity: 0.8;
+}
+
+/*añado esto para evitar el desplazamiento de las imagenes a la dcha*/
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
 }
