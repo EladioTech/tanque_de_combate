@@ -1,162 +1,24 @@
-console.log("LIGHTBOX JS CARGADO ✔");
-
-document.addEventListener('DOMContentLoaded', function () {
-    const botonMenu = document.querySelector('.menu-toggle');
-    const menuFlotante = document.querySelector('.menu-flotante');
-    const enlacesMenu = document.querySelectorAll('.menu-flotante a');
-    const secciones = document.querySelectorAll('section');
-
-    // Mostrar/ocultar menú
-    botonMenu.addEventListener('click', function (e) {
-        e.stopPropagation();
-        menuFlotante.classList.toggle('mostrar');
-    });
-
-    // Ocultar menú si clic fuera
-    document.addEventListener('click', function (e) {
-        if (!menuFlotante.contains(e.target) && !botonMenu.contains(e.target)) {
-            menuFlotante.classList.remove('mostrar');
-        }
-    });
-
-    // GESTIÓN DE ENLACES DEL MENÚ - VERSIÓN DEFINITIVA
-    enlacesMenu.forEach(function (enlace) {
-        enlace.addEventListener('click', function (e) {
-            const href = enlace.getAttribute('href');
-
-            // CASO 1: Enlace de Google Drive (CRM) - CON MENSAJE DE CORTESÍA
-            if (href && href.includes('drive.google.com')) {
-                console.log("🔗 Click en CRM - mostrando mensaje");
-
-                // Prevenimos temporalmente para mostrar el mensaje
-                e.preventDefault();
-
-                // Mostrar mensaje amigable
-                alert("📢 ¡Gracias por tu interés en CRM Vivienda!\n\nSerás redirigido a Google Drive para iniciar la descarga.\n\nEl archivo pesa 94MB, así que puede tardar unos segundos.");
-
-                // Abrir el enlace después del mensaje
-                window.open(href, '_blank');
-
-                // Cerrar el menú
-                menuFlotante.classList.remove('mostrar');
-
-                return; // Salimos
-            }
-
-            // CASO 2: Enlace del dossier PDF (tiene onclick)
-            if (enlace.getAttribute('onclick')) {
-                console.log("📘 Click en Dossier");
-                menuFlotante.classList.remove('mostrar');
-                return; // Dejamos que su función maneje el clic
-            }
-
-            // CASO 3: Enlaces internos (empiezan con #)
-            if (href && href.startsWith('#')) {
-                console.log("📍 Click en enlace interno:", href);
-                e.preventDefault(); // Solo prevenimos para estos
-
-                // Buscar la sección por su ID
-                try {
-                    const seccionActiva = document.querySelector(href);
-                    if (seccionActiva) {
-                        secciones.forEach(s => s.classList.remove('active'));
-                        seccionActiva.classList.add('active');
-                    } else {
-                        console.warn("⚠️ No se encontró la sección:", href);
-                    }
-                } catch (error) {
-                    console.error("❌ Error con selector:", href, error);
-                }
-
-                menuFlotante.classList.remove('mostrar');
-            }
-        });
-    });
-
-    insertarJSONLD();
-});
-
-// ===== TUS FUNCIONES EXISTENTES (NO CAMBIAN) =====
-
-function generarJSONLDProductos() {
-    const productos = [];
-    document.querySelectorAll('.galeria-venta .cuadro').forEach(cuadro => {
-        const nombre = cuadro.querySelector('.titulo-cuadro')?.textContent.trim() || '';
-        const img = cuadro.querySelector('img')?.src || '';
-        const descripcionPartes = [];
-
-        cuadro.querySelectorAll('p:not(.titulo-cuadro)').forEach(p => {
-            descripcionPartes.push(p.textContent.trim());
-        });
-        const descripcion = descripcionPartes.join(' • ');
-
-        let precio = null;
-        const precioMatch = nombre.match(/(\d+)\s*€/);
-        if (precioMatch) {
-            precio = precioMatch[1];
-        }
-
-        const producto = {
-            "@type": "Product",
-            "name": nombre.replace(/\d+\s*€/, '').trim(),
-            "image": img,
-            "description": descripcion,
-            "offers": {
-                "@type": "Offer",
-                "priceCurrency": "EUR",
-                "availability": "https://schema.org/InStock"
-            }
-        };
-
-        if (precio) {
-            producto.offers.price = precio;
-        }
-
-        productos.push(producto);
-    });
-
-    return {
-        "@context": "https://schema.org",
-        "@graph": productos
-    };
-}
-
-function insertarJSONLD() {
-    if (document.querySelector('script[type="application/ld+json"]')) return;
-    const jsonLD = generarJSONLDProductos();
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.text = JSON.stringify(jsonLD, null, 2);
-    document.head.appendChild(script);
-}
-
-function mensajeDescarga() {
-    alert("¡Gracias por tu interés! Tu dossier de ilustraciones se descargará automáticamente.");
-}
-
-function abrirYDscargarDossier(e) {
-    e.preventDefault();
-    const pdfURL = "Dossier_SantaCruz.pdf";
-    alert("¡Gracias por tu interés! Tu dossier de ilustraciones se abrirá ahora y se descargará automáticamente.");
-    window.open(pdfURL, "_blank");
-    setTimeout(() => {
-        const enlace = document.createElement("a");
-        enlace.href = pdfURL;
-        enlace.download = "Dossier_SantaCruz.pdf";
-        document.body.appendChild(enlace);
-        enlace.click();
-        enlace.remove();
-    }, 1000);
-}
-
-// Galería de servicios
+// ===== GALERÍA DE SERVICIOS =====
 const fotosServicios = {
-    retratos: ["servicios/madre-de-luz-arte-religioso-santacruz.webp", "servicios/papa-francisco-humildad-cercania-santacruz.webp", "servicios/santa-claus-alegria-esperanza-navidad-santacruz.webp"],
-    cascos: ["servicios/sonic-casco-retro-alan-prost-aerografia79.webp", "servicios/indio-atletico-de-madrid-aerografia79.webp", "servicios/casco-de-moto-personalizado-chicago-bull-aerografia79.webp"],
-    faros: ["servicios/lacado-faro-trasero-de-coche-aerografia79.webp"],
-    llantas: ["servicios/pintado-de-llantas-rm-azul-oviedo-aerografia79.webp"],
+    retratos: [
+        "servicios/madre-de-luz-arte-religioso-santacruz.webp",
+        "servicios/papa-francisco-humildad-cercania-santacruz.webp",
+        "servicios/santa-claus-alegria-esperanza-navidad-santacruz.webp"
+    ],
+    cascos: [
+        "servicios/sonic-casco-retro-alan-prost-aerografia79.webp",
+        "servicios/indio-atletico-de-madrid-aerografia79.webp",
+        "servicios/casco-de-moto-personalizado-chicago-bull-aerografia79.webp"
+    ],
+    faros: [
+        "servicios/lacado-faro-trasero-de-coche-aerografia79.webp"
+    ],
+    llantas: [
+        "servicios/pintado-de-llantas-rm-azul-oviedo-aerografia79.webp"
+    ],
 };
 
+// ===== CREAR GALERÍA OVERLAY =====
 const galeriaServicios = document.createElement("div");
 galeriaServicios.id = "galeria-servicios";
 galeriaServicios.style.display = "none";
@@ -184,52 +46,148 @@ galeriaServicios.appendChild(btnCerrar);
 const divImagenes = document.createElement("div");
 galeriaServicios.appendChild(divImagenes);
 
-document.querySelectorAll(".caja").forEach(caja => {
-    caja.addEventListener("click", () => {
-        const servicio = caja.dataset.servicio;
-        divImagenes.innerHTML = "";
-        fotosServicios[servicio].forEach(src => {
-            const img = document.createElement("img");
-            img.src = src;
-            img.style.width = "80%";
-            img.style.maxWidth = "1200px";
-            img.style.height = "auto";
-            img.style.margin = "20px 0";
-            img.style.border = "3px solid white";
-            img.style.borderRadius = "10px";
-            divImagenes.appendChild(img);
+// ===== MAIN =====
+document.addEventListener('DOMContentLoaded', function () {
+
+    console.log("LIGHTBOX JS CARGADO ✔");
+
+    const botonMenu = document.querySelector('.menu-toggle');
+    const menuFlotante = document.querySelector('.menu-flotante');
+    const enlacesMenu = document.querySelectorAll('.menu-flotante a');
+    const secciones = document.querySelectorAll('section');
+
+    // ===== LIGHTBOX =====
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+
+    function abrirLightbox(src) {
+        lightboxImg.src = src;
+        lightbox.style.display = "flex";
+    }
+
+    function cerrarLightbox() {
+        lightbox.style.display = "none";
+        lightboxImg.src = "";
+    }
+
+    lightbox.addEventListener("click", cerrarLightbox);
+
+    // ===== CAJAS (SERVICIOS) =====
+    document.querySelectorAll(".caja").forEach(caja => {
+        caja.addEventListener("click", () => {
+
+            const tipo = caja.dataset.servicio;
+            const imagenes = fotosServicios[tipo];
+
+            if (!imagenes) return;
+
+            divImagenes.innerHTML = "";
+
+            imagenes.forEach(src => {
+                const img = document.createElement("img");
+                img.src = src;
+                img.style.width = "300px";
+                img.style.margin = "10px";
+                img.style.cursor = "pointer";
+
+                img.addEventListener("click", (e) => {
+                    e.stopPropagation();
+
+                    // 🔥 cerrar galería + abrir fullscreen
+                    galeriaServicios.style.display = "none";
+                    abrirLightbox(src);
+                });
+
+                divImagenes.appendChild(img);
+            });
+
+            galeriaServicios.style.display = "block";
         });
-        galeriaServicios.style.display = "block";
     });
+
+    // ===== A LA VENTA =====
+    document.querySelectorAll(".galeria-venta img").forEach(img => {
+        img.addEventListener("click", () => {
+            abrirLightbox(img.src);
+        });
+    });
+
+    // ===== MENÚ =====
+    botonMenu.addEventListener('click', function (e) {
+        e.stopPropagation();
+        menuFlotante.classList.toggle('mostrar');
+    });
+
+    document.addEventListener('click', function (e) {
+        if (!menuFlotante.contains(e.target) && !botonMenu.contains(e.target)) {
+            menuFlotante.classList.remove('mostrar');
+        }
+    });
+
+    enlacesMenu.forEach(function (enlace) {
+        enlace.addEventListener('click', function (e) {
+
+            const href = enlace.getAttribute('href');
+
+            if (href && href.startsWith('#')) {
+                e.preventDefault();
+
+                const seccionActiva = document.querySelector(href);
+                if (seccionActiva) {
+                    secciones.forEach(s => s.classList.remove('active'));
+                    seccionActiva.classList.add('active');
+                }
+
+                menuFlotante.classList.remove('mostrar');
+            }
+        });
+    });
+
+    insertarJSONLD();
 });
 
-// ===== LIGHTBOX GLOBAL =====
-const lightbox = document.getElementById("lightbox");
-const lightboxImg = document.getElementById("lightbox-img");
+// ===== FUNCIONES EXISTENTES =====
 
-// Abrir imagen en grande
-function abrirLightbox(src) {
-    lightboxImg.src = src;
-    lightbox.style.display = "flex";
+function generarJSONLDProductos() {
+    const productos = [];
+    document.querySelectorAll('.galeria-venta .cuadro').forEach(cuadro => {
+        const nombre = cuadro.querySelector('.titulo-cuadro')?.textContent.trim() || '';
+        const img = cuadro.querySelector('img')?.src || '';
+        const descripcionPartes = [];
+
+        cuadro.querySelectorAll('p:not(.titulo-cuadro)').forEach(p => {
+            descripcionPartes.push(p.textContent.trim());
+        });
+
+        const descripcion = descripcionPartes.join(' • ');
+
+        const producto = {
+            "@type": "Product",
+            "name": nombre,
+            "image": img,
+            "description": descripcion,
+            "offers": {
+                "@type": "Offer",
+                "priceCurrency": "EUR",
+                "availability": "https://schema.org/InStock"
+            }
+        };
+
+        productos.push(producto);
+    });
+
+    return {
+        "@context": "https://schema.org",
+        "@graph": productos
+    };
 }
 
-// Cerrar al hacer click fuera
-lightbox.addEventListener("click", () => {
-    lightbox.style.display = "none";
-    lightboxImg.src = "";
-});
+function insertarJSONLD() {
+    if (document.querySelector('script[type="application/ld+json"]')) return;
 
-// ===== GALERÍA "A LA VENTA" =====
-document.querySelectorAll(".galeria-venta img").forEach(img => {
-    img.addEventListener("click", () => {
-        abrirLightbox(img.src);
-    });
-});
-
-// ===== IMÁGENES DE CAJAS (SERVICIOS) =====
-document.querySelectorAll(".caja img").forEach(img => {
-    img.addEventListener("click", (e) => {
-        e.stopPropagation(); // evita conflicto con el click de la caja
-        abrirLightbox(img.src);
-    });
-});
+    const jsonLD = generarJSONLDProductos();
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(jsonLD, null, 2);
+    document.head.appendChild(script);
+}
