@@ -503,3 +503,24 @@ html, body {
         transform: scale(1);
     }
 }
+
+/* Estilos para personalización del casco y botón de descarga */
+#personalizacion {
+  padding: 40px;
+  background: #f5f5f5;
+  text-align: center;
+}
+
+.boton-descarga {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 20px;
+  background: #000;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+.boton-descarga:hover {
+  background: #444;
+}
