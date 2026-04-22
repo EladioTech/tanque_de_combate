@@ -8,7 +8,7 @@ const fotosServicios = {
     cascos: [
         "servicios/sonic-casco-retro-alan-prost-aerografia79.webp",
         "servicios/indio-atletico-de-madrid-aerografia79.webp",
-        "servicios/casco-de-moto-personalizado-chicago-bull-aerografia79.webp"
+        "servicios/casco-de-moto-personalizado-earthworldjim-aerografia79.webp"
     ],
     faros: [
         "servicios/lacado-faro-trasero-de-coche-aerografia79.webp"
