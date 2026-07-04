@@ -46,7 +46,32 @@ galeriaServicios.appendChild(btnCerrar);
 const divImagenes = document.createElement("div");
 galeriaServicios.appendChild(divImagenes);
 
-// ===== MAIN =====
+// ============================================
+// FUNCIÓN PARA EL DOSSIER DE ILUSTRACIONES
+// (DEFINIDA ANTES DE QUE SE USE)
+// ============================================
+function abrirYDscargarDossier(e) {
+    e.preventDefault();
+    
+    const pdfURL = "Dossier_SantaCruz.pdf";
+    
+    alert("📘 ¡Gracias por tu interés en mi dossier!\n\nSe abrirá en una nueva pestaña y comenzará la descarga automática.");
+    
+    window.open(pdfURL, "_blank");
+    
+    setTimeout(() => {
+        const enlace = document.createElement("a");
+        enlace.href = pdfURL;
+        enlace.download = "Dossier_SantaCruz.pdf";
+        document.body.appendChild(enlace);
+        enlace.click();
+        enlace.remove();
+    }, 1000);
+}
+
+// ============================================
+// MAIN
+// ============================================
 document.addEventListener('DOMContentLoaded', function () {
 
     console.log("LIGHTBOX JS CARGADO ✔");
@@ -92,8 +117,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 img.addEventListener("click", (e) => {
                     e.stopPropagation();
-
-                    // 🔥 cerrar galería + abrir fullscreen
                     galeriaServicios.style.display = "none";
                     abrirLightbox(src);
                 });
@@ -124,12 +147,18 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+    // ==== MANEJO DE ENLACES DEL MENÚ (CORREGIDO) ====
     enlacesMenu.forEach(function (enlace) {
         enlace.addEventListener('click', function (e) {
-
             const href = enlace.getAttribute('href');
 
-            if (href && href.startsWith('#')) {
+            // Si el enlace tiene onclick (como el dossier), NO lo tocamos
+            if (enlace.hasAttribute('onclick')) {
+                return; // Dejamos que el onclick haga su trabajo
+            }
+
+            // Si es un enlace interno (empieza con #)
+            if (href && href.startsWith('#') && href.length > 1) {
                 e.preventDefault();
 
                 const seccionActiva = document.querySelector(href);
@@ -146,7 +175,9 @@ document.addEventListener('DOMContentLoaded', function () {
     insertarJSONLD();
 });
 
-// ===== FUNCIONES EXISTENTES =====
+// ============================================
+// FUNCIONES EXISTENTES
+// ============================================
 
 function generarJSONLDProductos() {
     const productos = [];
@@ -190,4 +221,25 @@ function insertarJSONLD() {
     script.type = 'application/ld+json';
     script.text = JSON.stringify(jsonLD, null, 2);
     document.head.appendChild(script);
+}
+// ============================================
+// FUNCIÓN PARA EL DOSSIER DE ILUSTRACIONES
+// ============================================
+function abrirYDscargarDossier(e) {
+    e.preventDefault();
+    
+    const pdfURL = "Dossier_SantaCruz.pdf";
+    
+    alert("📘 ¡Gracias por tu interés en mi dossier!\n\nSe abrirá en una nueva pestaña y comenzará la descarga automática.");
+    
+    window.open(pdfURL, "_blank");
+    
+    setTimeout(() => {
+        const enlace = document.createElement("a");
+        enlace.href = pdfURL;
+        enlace.download = "Dossier_SantaCruz.pdf";
+        document.body.appendChild(enlace);
+        enlace.click();
+        enlace.remove();
+    }, 1000);
 }
